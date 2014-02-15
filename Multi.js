@@ -4,6 +4,9 @@ var scheduledPlayers = {};
 var lastUpdated = 0;
 var timeout = 20000;
 function updatePlayerState(state){
+    if (!(Meteor && Players)){
+	return;
+    }
     var now = Date.now();
     if(this.isUpdating || (now - lastUpdated) <= 1000){
         return;
@@ -19,8 +22,7 @@ function updatePlayerState(state){
 
 function updatePlayers(){
     if(!(Meteor && Meteor.userId())){
-        isUpdating = false
-        consol.log(Meteor);
+        isUpdating = false;
         return;
     }
     var id = Meteor.userId();

@@ -213,8 +213,12 @@ ShipDesigner.prototype.shareShip = function (){
 				 }
 			       );
     this.currentShip.assemble(this.grid);
-    var uname = Meteor.user().username;
-    var uid = Meteor.user()._id; 
+    var uname = "local";
+    var uid = "0";
+    if (Meteor && Meteor.user()){
+        uname = Meteor.user().username;
+        uid = Meteor.user()._id; 
+    }
     var aid = this.currentShip.authorID;
     if(this.currentShip._id && aid && uid === aid){
 	    Ships.update(this.currentShip._id,{$set: this.currentShip});

@@ -132,8 +132,12 @@ PartsDesigner.prototype.newPart = function () {
 
 PartsDesigner.prototype.sharePart = function(){
     this.currentPart.finalize(this.grid);
-    var uname = Meteor.user().username;
-    var uid = Meteor.user()._id; 
+    var uname = "local";
+    var uid = "0";
+    if (Meteor && Meteor.user()){
+        uname = Meteor.user().username;
+        uid = Meteor.user()._id; 
+    }
     var aid = this.currentPart.authorID;
     if(this.currentPart._id && aid && uid === aid){
 	    Parts.update(this.currentPart._id,{$set: this.currentPart});

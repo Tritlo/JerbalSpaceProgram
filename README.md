@@ -8,3 +8,5 @@ This was the final project in both Computer Game Programming at the University o
 [A short demo of the game](http://youtu.be/6cwalUbIsYM)
 
 To run, start a web server in the root directory and browse to the ".standalone/" folder.
+
+[Link to the website repo](https://github.com/Tritlo/JerbalSpaceProgramWebsite)

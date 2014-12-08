@@ -154,10 +154,13 @@ Stars.prototype._renderStar = function(ctx,x,y,p,l){
     ctx.fillStyle="white";
     ctx.strokeStyle="white";
     var r = Math.sqrt(this._maxLevel/(l+1))/2;
-    util.fillCircle(ctx,x0,y0,r);
-    util.fillCircle(ctx,x1,y1,r);
-    ctx.lineWidth=2*r;
-    util.drawLine(ctx,x0,y0,x1,y1);
+    if(util.distSq(x0,y0,x1,y1) < 0.01){
+        util.fillCircle(ctx,x0,y0,r);
+    } else {
+        ctx.lineWidth=2*r;
+        ctx.lineCap="round";
+        util.drawLine(ctx,x0,y0,x1,y1);
+    }
     ctx.restore();
 };
 

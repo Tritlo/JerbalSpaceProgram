@@ -620,9 +620,9 @@ Ship.prototype.render = function (ctx) {
 	this._renderExplosion(ctx);
     } else {
         //Only render orbit when zoomed out enough
-        if(this.getInstance().entityManager.cameraZoom < 0.3){
+        //if(this.getInstance().entityManager.cameraZoom < 0.3){
             this.renderOrbit(ctx); 
-        }
+        //}
         if(this.getInstance().settings.enableDebug){
             this.renderHitDebug(ctx);
             this.renderOrbit(ctx); 

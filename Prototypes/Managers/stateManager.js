@@ -65,6 +65,14 @@ StateManager.prototype.cameraUpdate = function(du){
 };
 
 StateManager.prototype.update = function(du){
+    if (eatKey(this.getInstance().settings.keys.KEY_MUTE)) {
+          var snd = document.getElementById("soundtrack");
+          if (snd.paused) {
+            snd.play();
+          } else {
+            snd.pause();
+          }
+    }
 	if(this.currentState){
 	    this.states[this.currentState].update(du);
 	}

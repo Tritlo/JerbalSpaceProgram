@@ -41,7 +41,6 @@ select {
 <script src="../lib/util.js"></script>
 
 
-
 <script src="../Prototypes/lib/Instantiable.js"></script>
 
 
@@ -82,9 +81,12 @@ select {
 </head>
 <body>
 <div id="game">
+    <audio id="soundtrack" autoplay loop>
+        <source src="../clairdelune.ogg" type="audio/ogg">
+    </audio>
     <div id="canvas">
 	<canvas id="JSPCanvas" width="650" height="650"
-	    style="border: 1px solid black;">
+	    style="border: 1px solid black; font: monospace;">
 	Sorry, but your browser does not support the HTML5 canvas tag.
 	</canvas>
 	<form id="gameInput">

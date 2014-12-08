@@ -28,7 +28,7 @@ var g_settings = {
           "timeMultiplier": 1,
           "renderPlanetCenter" : false,
           "graphicsLevel": 1,
-          "renderOrbit": true,
+          "renderOrbit": false,
           "keys": {
               "KEY_THRUST": keyCode('W'),
               "KEY_RETRO": keyCode('S'),

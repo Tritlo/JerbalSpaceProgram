@@ -105,12 +105,18 @@ Stars.prototype.render = function(ctx){
     //console.log("render: " + os);
     var bl = this._posToBlock(os[0],os[1]);
     //util.fillCircle(ctx,-os[0],-os[1],10);
+    ctx.save();
+    ctx.beginPath();
+    ctx.fillStyle="white";
+    ctx.strokeStyle="white";
+    ctx.lineCap="round";
     for(var i = bl[0]-this._rad; i <= bl[0]+this._rad; i++){
         for(var j = bl[1]-this._rad; j <= bl[1]+this._rad; j++){
-	    //console.log(i,j);
-	    this._renderBlock(ctx,i,j);
-	}
+	          this._renderBlock(ctx,i,j);
+	      }
     }
+    ctx.fill();
+    ctx.restore();
 };
 
 // How to the stars elongate when going fast
@@ -146,22 +152,20 @@ Stars.prototype._renderStar = function(ctx,x,y,p,l){
     var pos = this._applyParallax(os,x,y,p);//entityManager.cameraZoom < 0.6?{x:x,y:y}:this._applyParallax(os,x,y,p);
     var x0 = pos.x;
     var y0 = pos.y;
-    
-    var addedSpeed = this._starTween(s.velX,s.velY);
-    var x1 = x0 + addedSpeed.x;
-    var y1 = y0 + addedSpeed.y;
-    ctx.save();
-    ctx.fillStyle="white";
-    ctx.strokeStyle="white";
     var r = Math.sqrt(this._maxLevel/(l+1))/2;
-    if(util.distSq(x0,y0,x1,y1) < 0.01){
-        util.fillCircle(ctx,x0,y0,r);
+    if(this.getInstance().settings.parallax){
+        util.quickFillCircle(ctx,x0,y0,r);
     } else {
-        ctx.lineWidth=2*r;
-        ctx.lineCap="round";
-        util.drawLine(ctx,x0,y0,x1,y1);
+        var addedSpeed = this._starTween(s.velX,s.velY);
+        var x1 = x0 + addedSpeed.x;
+        var y1 = y0 + addedSpeed.y;
+        if(util.distSq(x0,y0,x1,y1) < 0.01){
+            util.quickFillCircle(ctx,x0,y0,r);
+        } else {
+            ctx.lineWidth=2*r;
+            util.quickDrawLine(ctx,x0,y0,x1,y1);
+        }
     }
-    ctx.restore();
 };
 
 // Renders block number i,j

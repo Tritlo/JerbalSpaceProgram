@@ -11,6 +11,7 @@ var g_settings = {
           "allowMixedActions": true,
           "enableRocks": false,
           "minLandingSpeed": 1.4,
+          "parallax" :true,
           "minFrictSpeed": 0.1,
           "maxSafeSpeed" : 3,
           "maxSafeAngle"    : 1,

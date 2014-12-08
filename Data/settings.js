@@ -1,5 +1,5 @@
 var g_settings = {
-          "font": "VT323",
+          "font": "monaco",
           "useGravity": true,
           "useAveVel": true,
           "renderSpatialDebug":false,
@@ -37,7 +37,7 @@ var g_settings = {
               "KEY_RIGHT": keyCode('D'),
               "KEY_RENDER_ORBIT": keyCode('O'),
               "KEY_MUTE": keyCode('M'),
-                "KEY_TOGGLE_DEBUG": keyCode('B'),
+                //"KEY_TOGGLE_DEBUG": keyCode('B'),
                 "KEY_QUIT" : keyCode('Q'),
                 "KEY_PAUSE" :  keyCode('P'),
                 "KEY_STEP" :  keyCode('0'),

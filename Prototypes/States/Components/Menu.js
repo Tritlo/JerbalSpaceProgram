@@ -65,7 +65,7 @@ Menu.prototype.items = [];
 
 Menu.prototype.fill = "lime";
 Menu.prototype.stroke = "lime";
-Menu.prototype.font = "VT323";
+Menu.prototype.font = "VT323"
 Menu.prototype.height = 0;
 Menu.prototype.width = 0;
 
@@ -76,11 +76,12 @@ Menu.prototype.render = function(ctx) {
         ctx.strokeStyle = this.stroke;
         ctx.textAlign = "center";
         ctx.textBaseline = "top";
+        var font = g_settings.font;
         if(this.title){
-            ctx.font = this.titleHeight+"px " +this.font;
+            ctx.font = this.titleHeight+"px " +font;
             ctx.fillText(this.title, this.location[0],this.location[1],this.width);
         }
-        ctx.font = this.itemHeight+"px " +this.font;
+        ctx.font = this.itemHeight+"px " +font;
         ctx.textBaseline = "middle";
         for(var i = 0; i < this.items.length; i++) {
             var item = this.items[i];
